@@ -40,5 +40,13 @@ if [ -e /etc/nginx/sites-enabled/default ]; then
 fi
 
 if [ $RESTART_NGINX == 1 ]; then
-    service nginx restart
+    if service nginx status | grep -q "not running"; then
+        service nginx start
+    elif service nginx status | grep -q "running"; then
+        service nginx restart
+    else
+        # ugh what?
+        echo "nginx in an alternative state:"
+        service nginx status
+    fi
 fi
