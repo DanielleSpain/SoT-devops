@@ -1,8 +1,8 @@
 echo "apt update"
 apt-get update 2>&1 > /dev/null
 
-PKGS=(language-pack-en python python-pip nginx)
-for pkg in $PKGS; do
+PKGS=( language-pack-en python python-pip nginx )
+for pkg in ${PKGS[@]}; do
     if ! dpkg -l $pkg &> /dev/null; then
         apt-get install -y $pkg
     fi
