@@ -1,4 +1,6 @@
-apt-get update
+echo "apt update"
+apt-get update 2>&1 > /dev/null
+
 apt-get install -y language-pack-en
 
 apt-get install -y python python-pip
