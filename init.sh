@@ -1,9 +1,13 @@
 echo "apt update"
 apt-get update 2>&1 > /dev/null
 
-apt-get install -y language-pack-en
+PKGS=(language-pack-en python python-pip nginx)
+for pkg in $PKGS; do
+    if ! dpkg -l $pkg &> /dev/null; then
+        apt-get install -y $pkg
+    fi
+done
 
-apt-get install -y python python-pip
 pip install -r /vagrant/proj/requirements.txt
 
 apt-get install -y nginx
