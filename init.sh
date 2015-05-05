@@ -10,8 +10,6 @@ done
 
 pip install -r /vagrant/proj/requirements.txt
 
-apt-get install -y nginx
-
 cp /vagrant/nginx/hello.conf /etc/nginx/sites-available
 ln -s /etc/nginx/sites-available/hello.conf /etc/nginx/sites-enabled
 rm /etc/nginx/sites-enabled/default
