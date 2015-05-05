@@ -1,4 +1,5 @@
 # apt-get update
+
 PKGS=( language-pack-en python python-pip nginx )
 for pkg in ${PKGS[@]}; do
     if ! dpkg -l $pkg &> /dev/null; then
