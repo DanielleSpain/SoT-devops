@@ -14,6 +14,8 @@ pip install -r /vagrant/proj/requirements.txt
 
 RESTART_NGINX=0
 
+RESTART_NGINX=0
+
 if [ -e /etc/nginx/sites-available/hello.conf ]; then
     LEFT=$(md5sum /etc/nginx/sites-available/hello.conf | awk '{ print $1 }')
     RIGHT=$(md5sum /vagrant/nginx/hello.conf | awk '{ print $1 }')
