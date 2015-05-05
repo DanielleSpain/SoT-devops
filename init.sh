@@ -7,6 +7,7 @@ for pkg in ${PKGS[@]}; do
     fi
 done
 
+
 pip install -r /vagrant/proj/requirements.txt
 
 cp /vagrant/nginx/hello.conf /etc/nginx/sites-available
