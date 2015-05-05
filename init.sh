@@ -10,7 +10,8 @@ for pkg in ${PKGS[@]}; do
 done
 
 # pip install is a no-op if it's already there
-pip install -r /vagrant/proj/requirements.txt
+echo "Performing pip install..."
+pip install -r /vagrant/proj/requirements.txt 2>&1 > /dev/null
 
 RESTART_NGINX=0
 
@@ -21,6 +22,7 @@ if [ -e /etc/nginx/sites-available/hello.conf ]; then
     RIGHT=$(md5sum /vagrant/nginx/hello.conf | awk '{ print $1 }')
     if [ $LEFT != $RIGHT ]; then
         # vagrant/nginx is our authoritative source
+        echo "Copying nginx config..."
         cp /vagrant/nginx/hello.conf /etc/nginx/sites-available
         RESTART_NGINX=1
     fi
@@ -31,18 +33,22 @@ else
 fi
 
 if ! [ -e /etc/nginx/sites-enabled ]; then
+    echo "linking nginx config..."
     ln -s /etc/nginx/sites-available/hello.conf /etc/nginx/sites-enabled
     RESTART_NGINX=1
 fi
 if [ -e /etc/nginx/sites-enabled/default ]; then
+    echo "disabling nginx default site"
     rm /etc/nginx/sites-enabled/default
     RESTART_NGINX=1
 fi
 
 if [ $RESTART_NGINX == 1 ]; then
     if service nginx status | grep -q "not running"; then
+        echo "starting nginx"
         service nginx start
     elif service nginx status | grep -q "running"; then
+        echo "restarting nginx"
         service nginx restart
     else
         # ugh what?
