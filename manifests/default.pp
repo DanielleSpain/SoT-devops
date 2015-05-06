@@ -20,16 +20,5 @@ nginx::resource::vhost { 'www.example.com':
   proxy => 'http://hello_app',
 }
 
-include 'upstart'
-
-upstart::job { 'hello':
-    description   => 'Example for our Hello',
-    version       => '0.0.1',
-    respawn       => true,
-    respawn_limit => '5 10',
-    user          => 'nginx',
-    group         => 'nginx',
-    chdir         => '/vagrant/proj',
-    exec          => '/usr/bin/python app.py',
-    require       => Package["bottle"]
-}
+# Sets up Docker support
+include "docker"
