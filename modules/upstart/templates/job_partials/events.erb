@@ -1,0 +1,17 @@
+
+start on <%= @start_on %>
+<% if @stop_on -%>
+stop on <%=  @stop_on  %>
+<% end -%>
+<% ########################## -%>
+<% unless @emits.empty? -%>
+
+<%   @emits.each do |event| -%>
+emits <%= @event %>
+<%   end -%>
+<% end -%>
+<% ########################## -%>
+<% if @instance -%>
+
+instance <%= @instance %>
+<% end -%>

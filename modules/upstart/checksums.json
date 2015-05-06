@@ -1,0 +1,23 @@
+{
+  "Gemfile": "b2fb6f2de94521678326ca32013abd1e",
+  "Gemfile.lock": "b5bfcaec057801d74a2cd5ff29921c01",
+  "LICENSE": "7cf54c3edffbdbf63b6417d1805f0040",
+  "README.markdown": "4f1d5464f1c3458fc579887ef8d96b07",
+  "Rakefile": "8f9b8a5f6047d1c23164397034157927",
+  "files/dbus/Upstart.conf.no_user_jobs": "0e7eadb0a62687e1ebb1b35021ca97cf",
+  "files/dbus/Upstart.conf.user_jobs": "2fa998a14a9b8c1a01a3c512ad8fe94f",
+  "files/user_jobs.conf": "94781ee30320960e272fe5fe481ada21",
+  "manifests/init.pp": "9acfb7492e7b21c5fc35decf6c68cffa",
+  "manifests/job.pp": "3f1c89f169056d54b2eb4e088a410afa",
+  "manifests/params.pp": "57012348c29fdc04898357222e0cb600",
+  "metadata.json": "dbea90141adc67625ce5bbfa9cbbeba6",
+  "spec/classes/upstart_spec.rb": "62dea7d6d40fe0eac82b15b67f469be2",
+  "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
+  "templates/job.erb": "e96ffad3971306e98efe682610e32261",
+  "templates/job_partials/environment.erb": "f5cba067fea39350742db05f7f0d3202",
+  "templates/job_partials/events.erb": "0190a38b80beacf88b6e403decdab1a2",
+  "templates/job_partials/limits.erb": "c6e7183ed14cedb4fac3b9d811b52e63",
+  "templates/job_partials/metadata.erb": "33fc356a9e8a8aeea1d34a25437499bc",
+  "templates/job_partials/operation.erb": "4be7ac2750249f64c6c55d6aeac7c6fb",
+  "templates/job_partials/scripts.erb": "16cdf8f5c856d3a7273b574c00be7cdc"
+}
