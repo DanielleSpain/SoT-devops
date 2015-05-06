@@ -1,7 +1,2 @@
-apt-get update
-apt-get install -y language-pack-en
-
-apt-get install -y python python-pip
-pip install -r /vagrant/proj/requirements.txt
-
-
+apt-get -y update 2>&1 > /dev/null
+apt-get install -y language-pack-en 2>&1 /dev/null
