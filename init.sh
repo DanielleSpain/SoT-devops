@@ -1,5 +1,4 @@
-echo "apt update"
-apt-get update 2>&1 > /dev/null
+# apt-get update 2>&1 > /dev/null
 
 PKGS=( language-pack-en python python-pip nginx )
 for pkg in ${PKGS[@]}; do
