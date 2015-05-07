@@ -23,20 +23,17 @@ nginx::resource::vhost { 'www.example.com':
 # Sets up Docker support
 include "docker"
 
-service {"hello":
-    ensure => "stopped"
+docker::image{"ubuntu":
+    image_tag => "14.04"
 }
 
-upstart::job { 'hello':
-    description   => 'Example for our Hello',
-    version       => '0.0.1',
-    respawn       => true,
-    respawn_limit => '5 10',
-    user          => 'nginx',
-    group         => 'nginx',
-    chdir         => '/vagrant/proj',
-    exec          => '/usr/bin/python app.py',
-    # Talk about this
-    ensure  => "absent",
-    require => Service["hello"]
+docker::image{"hello":
+    docker_dir => "/vagrant/proj",
+    require    => Docker::Image["ubuntu"]
+}
+
+docker::run{"hello":
+    image   => "hello",
+    ports   => ["8080:8080"],
+    require => Docker::Image["hello"]
 }
