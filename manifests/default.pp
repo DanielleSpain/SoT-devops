@@ -22,3 +22,21 @@ nginx::resource::vhost { 'www.example.com':
 
 # Sets up Docker support
 include "docker"
+
+service {"hello":
+    ensure => "stopped"
+}
+
+upstart::job { 'hello':
+    description   => 'Example for our Hello',
+    version       => '0.0.1',
+    respawn       => true,
+    respawn_limit => '5 10',
+    user          => 'nginx',
+    group         => 'nginx',
+    chdir         => '/vagrant/proj',
+    exec          => '/usr/bin/python app.py',
+    # Talk about this
+    ensure  => "absent",
+    require => Service["hello"]
+}
